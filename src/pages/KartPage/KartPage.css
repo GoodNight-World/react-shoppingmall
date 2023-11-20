@@ -19,3 +19,8 @@
     align-self: center;
     right: 10px;
 }
+
+.empty__kart {
+    padding-top: 100px;
+    text-align: center;
+}
