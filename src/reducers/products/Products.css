@@ -1,0 +1,49 @@
+.products__box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.product__box {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 25px;
+    width: 230px;
+}
+
+.main-product__image {
+    width: 200px;
+    height: 200px;
+}
+
+.main-product__title {
+    margin-bottom: 10px;
+}
+
+.push-kart__btn {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    color: gray;
+    transition: all 0.3s;
+}
+
+.push-kart__btn:hover {
+    background-color: gray;
+    color: white;
+}
+
+.pushed-kart__btn {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    width: 130px;
+    height: 30px;
+    background-color: gray;
+    color: white;
+}
+
+.main-product__price {
+    margin-left: 20px;
+}

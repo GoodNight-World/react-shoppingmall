@@ -1,0 +1,7 @@
+.product-in-kart{
+    display: flex;
+}
+.product-image {
+    width: 100px;
+    height: 150px;
+}
