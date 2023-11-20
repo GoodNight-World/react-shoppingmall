@@ -31,6 +31,7 @@ export const productSlice = createSlice({
         setCategory: {
             reducer: (state, action) => {
                 if(action.payload === 'all'){
+                    state.currentCategory = action.payload;
                     state.currentValue = state.value;
                     return;
                 }
