@@ -19,11 +19,7 @@ const Nav = () => {
               className='nav__icon' 
               src={kartImg} 
               alt='kart_image' 
-              onClick={() => navigate('/kart', {
-                state: {
-                  ids: kart,
-                }
-              })}
+              onClick={() => navigate('/kart')}
             />
             { kart.length !== 0 ? (
                 <div className='kart-count'>{ kart.length }</div>

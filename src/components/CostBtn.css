@@ -1,0 +1,35 @@
+.cost-btns > button {
+    float: right;
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 20px;
+    transition: all 0.3s;
+}
+
+.cost-btns > button:hover {
+    color: white;
+    background-color: gray;
+}
+
+.product-details {
+    width: 700px;
+}
+
+.p1{
+    color: rgb(160, 160, 160);
+    font-weight: bold;
+}
+
+.p2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.p3 {
+    font-size: 25px;
+    font-weight: bold;
+}

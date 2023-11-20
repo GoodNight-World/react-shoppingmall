@@ -1,7 +1,21 @@
+.kart__container{
+    width: 100%;
+}
 .product-in-kart{
+    width: 100%;
     display: flex;
+    position: relative;
+    margin-top: 10px;
+    border-bottom: 1px solid gray;
 }
 .product-image {
     width: 100px;
     height: 150px;
+    margin: 10px 30px;
+}
+.x__btn {
+    position: absolute;
+    height: 20px;
+    align-self: center;
+    right: 10px;
 }

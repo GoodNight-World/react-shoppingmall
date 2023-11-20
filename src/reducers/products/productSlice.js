@@ -45,7 +45,16 @@ export const productSlice = createSlice({
         },
         setKart: (state, action) => {
             state.kart.push(action.payload);
+        },
+        deleteKart: (state, action) => {
+            if(action.payload === -1) {
+                state.kart = [];
+                return;
+            }
+            const index = state.kart.indexOf(action.payload);
+            state.kart.splice(index, 1);
         }
+        
     },
     extraReducers: (builder) => {
         builder
@@ -63,7 +72,7 @@ export const productSlice = createSlice({
     }
 })
 
-export const { setValue, setCategory, setKart } = productSlice.actions;
+export const { setCategory, setKart, deleteKart } = productSlice.actions;
 
 export const AllProductState = (state) => state.products.value;
 export const productState = (state) => state.products.currentValue;

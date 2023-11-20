@@ -14,29 +14,31 @@ export default function Counter({ price, setCosts }) {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
 
+  const [cnt, setCnt] = useState(1);
+
   useEffect(() => {
     setCosts(prev => prev + price);
   }, [])
 
   return (
-    <div>
+    <div className='counter__root'>
       <div className={styles.row}>
         <button
           className={styles.button}
           aria-label="Decrement value"
           onClick={() => {
-            dispatch(decrement())
-            count > 0 && setCosts(prev => prev - price);
+            cnt > 0 && setCnt(prev => prev - 1);
+            cnt > 0 && setCosts(prev => prev - price);
           }}
         >
           -
         </button>
-        <span className={styles.value}>{count}</span>
+        <span className={styles.value}>{cnt}</span>
         <button
           className={styles.button}
           aria-label="Increment value"
           onClick={() => {
-            dispatch(increment())
+            setCnt(prev => prev + 1);
             setCosts(prev => prev + price);
           }}
         >

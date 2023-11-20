@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { kartState, setKart } from '../../reducers/products/productSlice';
 import './DetailPage.css';
 
@@ -8,6 +8,7 @@ export default function DetailPage() {
   const {state} = useLocation();
   const kart = useSelector(kartState);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   console.log(state);
 
 
@@ -23,7 +24,7 @@ export default function DetailPage() {
           <button className='isPushed__button'>장바구니에 담긴 제품</button> :
           <button className='details__btn' onClick={() => dispatch(setKart(state.id))}>장바구니에 담기</button>
         }
-        <button className='details__btn'>장바구니로 이동</button>
+        <button className='details__btn' onClick={() => navigate('/kart')} >장바구니로 이동</button>
       </div>
     </div>
   )

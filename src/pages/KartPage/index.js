@@ -1,34 +1,39 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import kartImg from '../../images/kart.png';
-import { useSelector } from 'react-redux';
-import { AllProductState } from '../../reducers/products/productSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { AllProductState, deleteKart, kartState } from '../../reducers/products/productSlice';
 import Counter from '../../reducers/counter/Counter';
-import { selectCount } from '../../reducers/counter/counterSlice';
 import CostBtn from '../../components/CostBtn';
 import './KartPage.css';
 
 export default function KartPage() {
-  const {state} = useLocation();
   const products = useSelector(AllProductState);
-  const count = useSelector(selectCount);
   const [costs, setCosts] = useState(0);
+  const dispatch = useDispatch();
+  const kart = useSelector(kartState);
 
   return (
     <div className='kart__container'>
       {
-        state.ids.length > 0 ?
+        kart.length > 0 ?
           products.map(product => {
-            if(state.ids.includes(product.id)){
+            if(kart.includes(product.id)){
               return (
                 <div className='product-in-kart'>
                   <img className='product-image' src={product.image} alt='product-image'/>
                   <div className='product-details'>
-                    <p>{product.category}</p>
-                    <p>{product.title}</p>
-                    <p>{`$ ${product.price} x 1`}</p>
+                    <p className='p1'>{product.category}</p>
+                    <p className='p2'>{product.title}</p>
+                    <p className='p3'>{`$ ${product.price}`}</p>
                   </div>
                   <Counter price={product.price} setCosts={setCosts} />
+                  <button 
+                    className='x__btn'
+                    onClick={() => dispatch(deleteKart(product.id))}
+                  >
+                    X
+                  </button>
                 </div>
               )
             }
@@ -42,7 +47,7 @@ export default function KartPage() {
           </div>
       }
       {
-        state.ids.length > 0 ? <CostBtn costs={costs} /> : null
+        kart.length > 0 ? <CostBtn costs={costs} /> : null
       }
     </div>
   )
